@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VYBE — Sign Up</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+--bg:#07090d;
+--surface:#0d1118;
+--surface2:#131925;
+--border:#252d3a;
+--text:#f5f7fb;
+--muted:#8993a5;
+--primary:#8b7cff;
+}
+
+.theme-toggle{
+position:absolute;
+opacity:0;
+}
+
+.theme-toggle:checked~.app{
+--bg:#f5f6fa;
+--surface:#fff;
+--surface2:#f0f2f7;
+--border:#dfe3eb;
+--text:#10131a;
+--muted:#687181;
+}
+
+body{
+font-family:Inter,Arial,sans-serif;
+background:var(--bg);
+color:var(--text);
+}
+
+.app{
+min-height:100vh;
+background:var(--bg);
+}
+
+.header{
+height:76px;
+border-bottom:1px solid var(--border);
+display:flex;
+align-items:center;
+padding:0 6%;
+background:var(--surface);
+}
+
+.logo{
+font-size:27px;
+font-weight:900;
+letter-spacing:2px;
+}
+
+.header-right{
+margin-left:auto;
+display:flex;
+align-items:center;
+gap:18px;
+}
+
+.theme-button{
+width:42px;
+height:42px;
+border-radius:50%;
+border:1px solid var(--border);
+display:grid;
+place-items:center;
+cursor:pointer;
+background:var(--surface2);
+}
+
+.theme-button:before{content:"☾"}
+
+.theme-toggle:checked~.app .theme-button:before{
+content:"☀";
+}
+
+.auth{
+min-height:calc(100vh - 76px);
+display:grid;
+place-items:center;
+padding:30px;
+}
+
+.card{
+width:min(470px,100%);
+background:var(--surface);
+border:1px solid var(--border);
+border-radius:22px;
+padding:38px;
+}
+
+.auth-image{
+height:150px;
+border-radius:15px;
+overflow:hidden;
+margin-bottom:25px;
+}
+
+.auth-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+h1{
+font-size:34px;
+margin-bottom:10px;
+}
+
+.subtitle{
+color:var(--muted);
+margin-bottom:25px;
+}
+
+label.field{
+display:block;
+font-size:13px;
+font-weight:700;
+margin:15px 0 7px;
+}
+
+input{
+width:100%;
+padding:13px;
+border:1px solid var(--border);
+border-radius:10px;
+background:var(--surface2);
+color:var(--text);
+}
+
+.btn{
+width:100%;
+border:0;
+border-radius:11px;
+padding:14px;
+background:var(--primary);
+color:#fff;
+font-weight:700;
+margin-top:22px;
+cursor:pointer;
+}
+
+.footer{
+text-align:center;
+color:var(--muted);
+margin-top:20px;
+font-size:14px;
+}
+
+.footer a{
+color:var(--primary);
+font-weight:700;
+}
+</style>
+</head>
+
+<body>
+
+<input type="checkbox" id="theme" class="theme-toggle">
+
+<div class="app">
+
+<header class="header">
+
+<a href="index.html" class="logo">VYBE</a>
+
+<div class="header-right">
+
+<label for="theme" class="theme-button"></label>
+
+<a href="login.html">Log in</a>
+
+</div>
+
+</header>
+
+<main class="auth">
+
+<div class="card">
+
+<div class="auth-image">
+<img
+src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1000&q=80"
+alt="Students together">
+</div>
+
+<h1>Create your account.</h1>
+
+<p class="subtitle">
+Join your campus community on VYBE.
+</p>
+
+<form action="home.html">
+
+<label class="field">Full Name</label>
+<input type="text" placeholder="Your name" required>
+
+<label class="field">Email</label>
+<input type="email" placeholder="you@example.com" required>
+
+<label class="field">Campus</label>
+<input type="text" placeholder="Your university" required>
+
+<label class="field">Password</label>
+<input type="password" placeholder="Create a password" required>
+
+<button class="btn" type="submit">
+Create Account
+</button>
+
+</form>
+
+<p class="footer">
+Already have an account?
+<a href="login.html">Log in</a>
+</p>
+
+</div>
+
+</main>
+
+</div>
+
+</body>
+</html>
