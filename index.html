@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VYBE — Campus Events</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+
+:root{
+--bg:#07090d;
+--surface:#0d1118;
+--surface2:#131925;
+--border:#252d3a;
+--text:#f5f7fb;
+--muted:#8993a5;
+--primary:#8b7cff;
+--blue:#45a7ff;
+}
+
+.theme-toggle{
+position:absolute;
+opacity:0;
+pointer-events:none;
+}
+
+.theme-toggle:checked~.app{
+--bg:#f5f6fa;
+--surface:#ffffff;
+--surface2:#f0f2f7;
+--border:#dfe3eb;
+--text:#10131a;
+--muted:#687181;
+}
+
+body{
+font-family:Inter,Arial,sans-serif;
+background:var(--bg);
+color:var(--text);
+transition:.3s;
+}
+
+.app{
+min-height:100vh;
+background:var(--bg);
+transition:.3s;
+}
+
+.header{
+height:76px;
+border-bottom:1px solid var(--border);
+display:flex;
+align-items:center;
+padding:0 6%;
+gap:35px;
+background:var(--surface);
+}
+
+.logo{
+font-size:27px;
+font-weight:900;
+letter-spacing:2px;
+}
+
+.nav{
+display:flex;
+gap:25px;
+color:var(--muted);
+font-size:14px;
+}
+
+.nav a:hover{color:var(--text)}
+
+.header-actions{
+margin-left:auto;
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.theme-button{
+width:42px;
+height:42px;
+border:1px solid var(--border);
+border-radius:50%;
+display:grid;
+place-items:center;
+cursor:pointer;
+background:var(--surface2);
+}
+
+.theme-button:before{content:"☾"}
+
+.theme-toggle:checked~.app .theme-button:before{
+content:"☀";
+}
+
+.btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:13px 20px;
+border-radius:12px;
+background:var(--primary);
+color:white;
+font-weight:700;
+border:0;
+cursor:pointer;
+transition:.25s;
+}
+
+.btn:hover{
+transform:translateY(-2px);
+filter:brightness(1.1);
+}
+
+.btn.secondary{
+background:var(--surface2);
+border:1px solid var(--border);
+color:var(--text);
+}
+
+.hero{
+min-height:calc(100vh - 76px);
+display:flex;
+align-items:center;
+padding:70px 8%;
+position:relative;
+overflow:hidden;
+}
+
+.hero:before{
+content:"";
+position:absolute;
+width:500px;
+height:500px;
+background:#7666ff;
+filter:blur(170px);
+opacity:.18;
+right:-100px;
+top:-100px;
+}
+
+.hero-content{
+max-width:760px;
+position:relative;
+z-index:1;
+}
+
+.badge{
+display:inline-block;
+padding:8px 13px;
+border:1px solid var(--border);
+border-radius:30px;
+color:var(--primary);
+font-size:13px;
+margin-bottom:22px;
+background:var(--surface);
+}
+
+h1{
+font-size:clamp(50px,7vw,92px);
+line-height:.95;
+letter-spacing:-5px;
+}
+
+.gradient{
+background:linear-gradient(90deg,#9c8cff,#53b6ff);
+-webkit-background-clip:text;
+color:transparent;
+}
+
+.hero p{
+font-size:18px;
+line-height:1.7;
+color:var(--muted);
+max-width:600px;
+margin:28px 0;
+}
+
+.actions{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+}
+
+.preview{
+margin-top:70px;
+border:1px solid var(--border);
+background:var(--surface);
+border-radius:24px;
+padding:14px;
+box-shadow:0 30px 80px #0005;
+}
+
+.preview-card{
+height:260px;
+border-radius:17px;
+overflow:hidden;
+position:relative;
+display:flex;
+align-items:flex-end;
+padding:25px;
+}
+
+.preview-card img{
+position:absolute;
+inset:0;
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.preview-overlay{
+position:absolute;
+inset:0;
+background:linear-gradient(transparent 25%,rgba(0,0,0,.85));
+}
+
+.preview-content{
+position:relative;
+z-index:2;
+}
+
+.preview-content h3{
+font-size:27px;
+color:white;
+}
+
+.preview-content p{
+margin:8px 0 0;
+color:#ddd;
+}
+
+@media(max-width:800px){
+.header{padding:0 20px}
+.nav{display:none}
+.hero{padding:50px 20px}
+.hero h1{letter-spacing:-3px}
+}
+</style>
+</head>
+
+<body>
+
+<input type="checkbox" id="theme" class="theme-toggle">
+
+<div class="app">
+
+<header class="header">
+
+<a href="home.html" class="logo">VYBE</a>
+
+<nav class="nav">
+<a href="discover.html">Discover</a>
+<a href="calendar.html">Calendar</a>
+<a href="my-events.html">My Events</a>
+</nav>
+
+<div class="header-actions">
+<label for="theme" class="theme-button"></label>
+<a href="login.html" class="btn">Log in</a>
+</div>
+
+</header>
+
+<main class="hero">
+
+<div class="hero-content">
+
+<span class="badge">THE CAMPUS EVENT EXPERIENCE</span>
+
+<h1>
+Find your next<br>
+<span class="gradient">campus experience.</span>
+</h1>
+
+<p>
+Discover hackathons, cultural festivals, concerts, workshops
+and everything happening around your campus.
+</p>
+
+<div class="actions">
+<a href="signup.html" class="btn">Get Started →</a>
+<a href="discover.html" class="btn secondary">Browse Events</a>
+</div>
+
+<div class="preview">
+
+<div class="preview-card">
+
+<img
+src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1400&q=85"
+alt="Live music event">
+
+<div class="preview-overlay"></div>
+
+<div class="preview-content">
+<span class="badge">TRENDING NOW</span>
+<h3>Neon Nights: Campus Music Fest</h3>
+<p>Tonight · Main Campus Arena</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+</main>
+
+</div>
+</body>
+</html>
