@@ -682,15 +682,6 @@
             <p class="modal-text meta"></p><button class="btn accent glow" onclick="closeModal()">Continue</button>
         </div>
     </div>
-    <script>
-        function toggleTheme() { document.body.classList.toggle('light'); localStorage.setItem('vybeTheme', document.body.classList.contains('light') ? 'light' : 'dark'); showToast(document.body.classList.contains('light') ? 'Light theme enabled' : 'Dark theme enabled') }
-        (function () { if (localStorage.getItem('vybeTheme') === 'light') document.body.classList.add('light') })();
-        function showToast(msg) { let t = document.querySelector('.toast'); if (!t) { t = document.createElement('div'); t.className = 'toast'; document.body.appendChild(t) } t.textContent = msg; clearTimeout(window.tt); window.tt = setTimeout(() => t.remove(), 2600) }
-        function openModal(title, text) { let m = document.querySelector('#modal'); m.querySelector('.modal-title').textContent = title; m.querySelector('.modal-text').textContent = text; m.classList.add('show') }
-        function closeModal() { document.querySelector('#modal')?.classList.remove('show') }
-        function nav(url, msg) { if (msg) showToast(msg); setTimeout(() => location.href = url, 250) }
-        function fakeSubmit(msg, url) { showToast(msg); setTimeout(() => location.href = url, 700) }
-    </script>
 </body>
 
 </html>
