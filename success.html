@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width,initial-scale=1" name="viewport" />
-    <title>Neon Nights — VYBE</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Registration confirmed — VYBE</title>
     <style>
         :root {
             --bg: #080a0f;
@@ -594,36 +594,6 @@
                 font-size: 35px
             }
         }
-
-        /* VYBE visual upgrade */
-        .event-img {
-            position: relative;
-            overflow: hidden;
-            background-position: center;
-            background-size: cover;
-            min-height: 210px
-        }
-
-        .event-img:after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(0, 0, 0, .02), rgba(0, 0, 0, .34));
-            pointer-events: none
-        }
-
-        .card.event {
-            overflow: hidden
-        }
-
-        .card.event:hover .event-img {
-            transform: scale(1.035);
-            transition: transform .45s ease
-        }
-
-        .card.event .event-img {
-            transition: transform .45s ease
-        }
     </style>
 </head>
 
@@ -632,49 +602,53 @@
         <div class="container"><a class="logo" href="index.html">VYBE</a>
             <nav class="navlinks"><a class="" href="discover.html">Discover</a><a class=""
                     href="calendar.html">Calendar</a><a class="active" href="my-events.html">My Events</a></nav>
-            <div class="actions"><a class="theme" href="search.html">⌕ Search</a><span class="theme">☾ / ☀</span><a
-                    class="theme" href="login.html">Log in</a></div>
+            <div class="actions"><a href="search.html" class="theme">⌕ Search</a><button class="theme"
+                    onclick="toggleTheme()">☾ / ☀</button><a href="login.html" class="theme">Log in</a></div>
         </div>
     </header>
-    <main class="container page"><span class="eyebrow">FEATURED CAMPUS FEST</span>
-        <div class="hero-img"
-            style="height:390px;background-image:url('https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&amp;fit=crop&amp;w=1400&amp;q=85')">
-            <span class="hero-card-title">Neon Nights: Campus Music Fest</span><span class="hero-card-meta">Friday,
-                October 25 · 7:00 PM · Central Hall, Swaminarayan University</span></div>
-        <div class="split" style="margin-top:18px">
-            <section>
-                <div class="card">
-                    <h2>Curated Lineup</h2>
-                    <div class="grid3">
-                        <div class="notice">The Lunar Waves<br />Indie Synth Rock</div>
-                        <div class="notice">DK-Noir<br />Electronic</div>
-                        <div class="notice">Aura Strings<br />Fusion</div>
-                    </div>
+    <main class="container page">
+        <div style="text-align:center"><span class="eyebrow">✓ REGISTRATION CONFIRMED</span>
+            <h1 class="page-title">You’re all set.</h1>
+            <p class="lead" style="margin:auto">Your spot is confirmed. We’ve sent an encrypted backup pass and your
+                official event receipt.</p>
+        </div>
+        <div class="split" style="margin-top:30px">
+            <section class="card"><span class="pill">VYBE PASS · CAMPUS EXCLUSIVE</span>
+                <h2 style="font-size:30px">Thanganant 2.0</h2>
+                <div class="grid3">
+                    <div><small>DATE</small><br>Sat, Oct 7</div>
+                    <div><small>SHOWTIME</small><br>8:00 PM</div>
+                    <div><small>VENUE</small><br>Swaminarayan University</div>
                 </div>
-                <div class="card" style="margin-top:16px">
-                    <h2>Evening Timeline</h2>
-                    <div class="timeline">
-                        <div class="row">Gates Open <b>7:00 PM</b></div>
-                        <div class="row">DJ-Nova <b>7:45 PM</b></div>
-                        <div class="row">The Lunar Waves <b>9:00 PM</b></div>
-                        <div class="row">Electric Finale <b>10:45 PM</b></div>
-                    </div>
-                </div>
+                <div class="qr"></div>
+                <p class="meta" style="text-align:center">Scan at entrance for instant check-in<br>Pass Code: •••• 8471
+                </p>
             </section>
             <aside class="summary">
-                <div class="card"><span class="pill">42 seats left</span>
-                    <h2>Pass Selection</h2>
-                    <div class="feature">Student GA <b style="float:right">FREE</b></div>
-                    <div class="feature">VIP Front Stage <b style="float:right">₹299</b></div><a class="btn accent glow"
-                        style="width:100%;margin-top:15px" href="registration.html">Register / Get Ticket →</a>
+                <div class="card"><button class="btn primary" style="width:100%"
+                        onclick="showToast('Calendar event added')">▣ Add to Calendar</button>
+                    <div class="grid2" style="margin-top:10px"><button class="btn"
+                            onclick="showToast('Demo PDF download started')">↓ Download PDF</button><button class="btn"
+                            onclick="showToast('Pass link copied')">↗ Share Pass</button></div>
                 </div>
-                <div class="notice" style="margin-top:12px">Campus Safety Notice · Event is monitored by verified campus
-                    staff.</div>
+                <div class="card" style="margin-top:15px">
+                    <h2>Important Event Day Reminders</h2>
+                    <div class="feature">1 · Valid College ID Required</div>
+                    <div class="feature">2 · Strict Cutoff: 7:30 PM</div>
+                    <div class="feature">3 · Ticket Transfer Deadline</div>
+                </div>
             </aside>
         </div>
     </main>
     <footer class="footer container"><span>© 2026 VYBE Campus Social Infrastructure. All rights
             reserved.</span><span>Privacy · Community Guidelines · Campus Safety · Host Terms</span></footer>
+    <div class="modal" id="modal">
+        <div class="modal-box">
+            <h2 class="modal-title"></h2>
+            <p class="modal-text meta"></p><button class="btn accent glow" onclick="closeModal()">Continue</button>
+        </div>
+    </div>
+
 </body>
 
 </html>
